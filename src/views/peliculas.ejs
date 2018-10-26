@@ -1,0 +1,84 @@
+<%include partials/_header%>
+    <div class="container">
+      <h1 class="special_elite">Películas</h1>
+      <div class="row">
+        <!--FORM-->
+        <div class="col-md-7">
+          <p>Completa la información</p>
+          <div class="card">
+            <div class="card-body">
+              <form action="/addpeli" method="POST">
+                <div class="form-group">
+                  <input type="text" name="nombre_pelicula" placeholder="Nombre Película" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="text" name="genero_pelicula" placeholder="Género Película" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="text" name="director_pelicula" placeholder="Director Película" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="text" name="franquicia_pelicula" placeholder="Franquicia Película" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="text" name="pais_pelicula" placeholder="País Película" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="number" name="year_pelicula" placeholder="Año Estreno Película" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="number" name="duracion_pelicula" placeholder="Duración Película" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="text" name="productora_pelicula" placeholder="Productora Película" class="form-control">
+                </div>
+                <div class="form-group">
+                  <textarea class="form-control" name=actores_pelicula placeholder="Actores: Separelos con coma "></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="margin: 10px 10px">Agregar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!--TABLA-->
+        <div class="col-md-7">
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Género</th>
+                <th>Director</th>
+                <th>Franquicia</th>
+                <th>País</th>
+                <th>Año de Estreno</th>
+                <th>Duración</th>
+                <th>Productora</th>
+                <th>Actores</th>
+                <th>Operaciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for(var i=0; i<peliculas.length; i++) {%>
+                <tr>
+                  <td><%= peliculas[i].Nombre%></td>
+                  <td><%= peliculas[i].Genero%></td>
+                  <td><%= peliculas[i].Director%></td>
+                  <td><%= peliculas[i].Franquicia%></td>
+                  <td><%= peliculas[i].Pais%></td>
+                  <td><%= peliculas[i].Año_Estreno%></td>
+                  <td><%= peliculas[i].Duracion%></td>
+                  <td><%= peliculas[i].Productora%></td>
+                  <td><%= peliculas[i].Actores%></td>
+                  <td>
+                    <a href="/eliminarpeli/<%= peliculas[i]._id%>" class="btn btn-danger">Eliminar</a>
+                    <a href="/editarpeli/<%= peliculas[i]._id%>" class="btn btn-info">Actualizar</a>
+                  </td>
+                </tr>
+
+              <% } %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+<%include partials/_footer%>

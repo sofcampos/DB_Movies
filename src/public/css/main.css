@@ -1,0 +1,23 @@
+.quitar_float{
+  float: none;
+}
+.espacio_arriba{
+  margin-top: 70px;
+}
+.espacio_abajo{
+  margin-bottom: 50px;
+}
+.special_elite{
+  font-family: 'Special Elite', cursive;
+}
+
+.medio{
+  font-size: 1em;
+
+}
+.grande{
+  font-size: 3em;
+}
+.espacio_derecha{
+  margin-left: 1em;
+}

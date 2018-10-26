@@ -1,0 +1,30 @@
+<%include partials/_header2%>
+    <div class="container">
+      <h1 class="special_elite">Productora</h1>
+      <div class="row">
+        <!--FORM-->
+        <div class="col-md-7">
+          <p>Completa la información</p>
+          <div class="card">
+            <div class="card-body">
+              <form action="/editarproductora/<%= productor_edit._id%>" method="POST">
+                <div class="form-group">
+                  <input type="text" name="nombre_productora" placeholder="Nombre Productora" class="form-control"
+                  value="<%=productor_edit.Nombre%>">
+                </div>
+                <div class="form-group">
+                  <input type="number" name="year_productora" placeholder="Año Fundación Productora" class="form-control"
+                  value="<%= productor_edit.Año_Fundacion%>">
+                </div>
+                <div class="form-group">
+                  <input type="text" name="pag_web_productora" placeholder="Página Web Productora" class="form-control"
+                  value="<%= productor_edit.Pag_Web%>">
+                </div>
+                <button type="submit" class="btn btn-primary" style="margin: 10px 10px">Actualizar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<%include partials/_footer%>

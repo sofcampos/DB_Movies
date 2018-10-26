@@ -1,0 +1,53 @@
+<%include partials/_header2%>
+    <div class="container">
+      <h1 class="special_elite">Películas</h1>
+      <div class="row">
+        <!--FORM-->
+        <div class="col-md-7">
+          <p>Completa la información</p>
+          <div class="card">
+            <div class="card-body">
+              <form action="/editarpeli/<%= peli._id%>" method="POST">
+                <div class="form-group">
+                  <input type="text" name="nombre_pelicula" placeholder="Nombre Película" class="form-control"
+                  value="<%= peli.Nombre%>">
+                </div>
+                <div class="form-group">
+                  <input type="text" name="genero_pelicula" placeholder="Género Película" class="form-control"
+                  value="<%= peli.Genero%>">
+                </div>
+                <div class="form-group">
+                  <input type="text" name="director_pelicula" placeholder="Director Película" class="form-control"
+                  value="<%= peli.Director%>">
+                </div>
+                <div class="form-group">
+                  <input type="text" name="franquicia_pelicula" placeholder="Franquicia Película" class="form-control"
+                  value="<%= peli.Franquicia%>">
+                </div>
+                <div class="form-group">
+                  <input type="text" name="pais_pelicula" placeholder="País Película" class="form-control"
+                  value="<%= peli.Pais%>">
+                </div>
+                <div class="form-group">
+                  <input type="number" name="year_pelicula" placeholder="Año Estreno Película" class="form-control"
+                  value="<%= peli.Año_Estreno%>">
+                </div>
+                <div class="form-group">
+                  <input type="number" name="duracion_pelicula" placeholder="Duración Película" class="form-control"
+                  value="<%= peli.Duracion%>">
+                </div>
+                <div class="form-group">
+                  <input type="text" name="productora_pelicula" placeholder="Productora Película" class="form-control"
+                  value="<%= peli.Productora%>">
+                </div>
+                <div class="form-group">
+                  <textarea class="form-control" name=actores_pelicula placeholder="Actores: Separelos con coma"><%= peli.Actores.toString()%></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="margin: 10px 10px">Actualizar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<%include partials/_footer%>

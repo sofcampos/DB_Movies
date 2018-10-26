@@ -1,0 +1,49 @@
+<%include partials/_header%>
+  <div class="container">
+    <h1 class="special_elite">Datos de películas según Productora</h1>
+    <h3 class="special_elite"><%= productora_seleccionada_string.Empresa%></h3>
+    <div class="row">
+      <!--FORM-->
+      <div class="col-md-5">
+        <div class="card">
+          <div class="card-body">
+            <form action="/consultad" method="POST">
+              <div class="form-group">
+                <select class="form-control" name="productora_seleccionada"  placeholder="Nombre Productora">
+                  <% for(var i=0; i<companies.length; i++) {%>
+                    <option><%= companies[i].Nombre%></option>
+                  <% } %>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary" style="margin: 10px 10px">Seleccionar</button>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+      <!--TABLA-->
+      <div class="col-md-7">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Género</th>
+              <th>Año de Estreno</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(var i=0; i<resultado.length; i++) {%>
+              <tr>
+                <td><%= resultado[i].Nombre%></td>
+                <td><%= resultado[i].Genero%></td>
+                <td><%= resultado[i].Año_Estreno%></td>
+              </tr>
+
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+<%include partials/_footer%>

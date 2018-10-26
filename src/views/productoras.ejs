@@ -1,0 +1,53 @@
+<%include partials/_header%>
+    <div class="container">
+      <h1 class="special_elite">Productora</h1>
+      <div class="row">
+        <!--FORM-->
+        <div class="col-md-7">
+          <p>Completa la información</p>
+          <div class="card">
+            <div class="card-body">
+              <form action="/addproductora" method="POST">
+                <div class="form-group">
+                  <input type="text" name="nombre_productora" placeholder="Nombre Productora" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="number" name="year_productora" placeholder="Año Fundación Productora" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="text" name="pag_web_productora" placeholder="Página Web Productora" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary" style="margin: 10px 10px">Agregar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!--TABLA-->
+        <div class="col-md-7">
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Año de Fundación</th>
+                <th>Página web</th>
+                <th>Operaciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for(var i=0; i<productoras.length; i++) {%>
+                <tr>
+                  <td><%= productoras[i].Nombre%></td>
+                  <td><%= productoras[i].Año_Fundacion%></td>
+                  <td><%= productoras[i].Pag_Web%></td>
+                  <td>
+                    <a href="/eliminarproductora/<%= productoras[i]._id%>" class="btn btn-danger">Eliminar</a>
+                    <a href="/editarproductora/<%= productoras[i]._id%>" class="btn btn-info">Actualizar</a>
+                  </td>
+                </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+<%include partials/_footer%>

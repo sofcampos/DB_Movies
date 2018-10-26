@@ -1,0 +1,36 @@
+<%include partials/_header%>
+  <div class="container">
+    <h1 class="special_elite">Estadísticas de Productora</h1>
+    <h3 class="special_elite"><%= json.Productora%></h3>
+    <div class="row">
+      <!--FORM-->
+      <div class="col-md-5">
+        <div class="card">
+          <div class="card-body">
+            <form action="/consultae" method="POST">
+              <div class="form-group">
+                <select class="form-control" name="productora_seleccionada"  placeholder="Nombre Productora">
+                  <% for(var i=0; i<companies.length; i++) {%>
+                    <option><%= companies[i].Nombre%></option>
+                  <% } %>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary" style="margin: 10px 10px">Seleccionar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!--DATOS-->
+      <div class="col-md-7">
+        <h3 class="special_elite">Cantidad de Películas</h3>
+        <p><%= json.Cant_Pelis %></p>
+        <h3 class="special_elite">Película con menor duración</h3>
+        <p><%= json.Min %></p>
+        <h3 class="special_elite">Película con mayor duración</h3>
+        <p><%= json.Max %></p>
+        <h3 class="special_elite">Promedio de duración de películas</h3>
+        <p><%= json.Avg %></p>
+      </div>
+    </div>
+  </div>
+<%include partials/_footer%>

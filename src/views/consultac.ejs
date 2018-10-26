@@ -1,0 +1,54 @@
+<%include partials/_header%>
+  <div class="container">
+    <h1 class="special_elite">Información Película por año de estreno</h1>
+    <div class="row">
+      <!--FORM-->
+      <div class="col-md-5">
+        <div class="card">
+          <div class="card-body">
+            <form action="/consultac" method="POST">
+              <div class="form-group">
+                <input type="number" name="Inicio" placeholder="Fecha Inicial" class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="number" name="Final" placeholder="Fecha Final" class="form-control">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary" style="margin: 10px 10px">Seleccionar</button>
+          </form>
+        </div>
+        </div>
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Género</th>
+              <th>Director</th>
+              <th>Franquicia</th>
+              <th>País</th>
+              <th>Año de Estreno</th>
+              <th>Duración</th>
+              <th>Productora</th>
+              <th>Actores</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(var i=0; i<resultado.length; i++) {%>
+              <tr>
+                <td><%= resultado[i].Nombre%></td>
+                <td><%= resultado[i].Genero%></td>
+                <td><%= resultado[i].Director%></td>
+                <td><%= resultado[i].Franquicia%></td>
+                <td><%= resultado[i].Pais%></td>
+                <td><%= resultado[i].Año_Estreno%></td>
+                <td><%= resultado[i].Duracion%></td>
+                <td><%= resultado[i].Productora%></td>
+                <td><%= resultado[i].Actores%></td>
+              </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+<%include partials/_footer%>
